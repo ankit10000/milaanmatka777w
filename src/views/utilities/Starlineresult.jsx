@@ -21,8 +21,8 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/starline/result/upload';
-const GAMES_API_URL = 'http://localhost:3000/api/starline/game/all';
+const API_URL = 'https://mtka-api.onrender.com/api/starline/result/upload';
+const GAMES_API_URL = 'https://mtka-api.onrender.com/api/starline/game/all';
 
 const Starlineresult = () => {
   const [formData, setFormData] = useState({

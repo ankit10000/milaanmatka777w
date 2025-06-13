@@ -13,7 +13,7 @@ const SalesOverview = () => {
   useEffect(() => {
     const fetchTopUsers = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/wallet/admin/all-wallets');
+        const res = await axios.get('https://mtka-api.onrender.com/api/wallet/admin/all-wallets');
         // Sort by balance and pick top 10
         const sorted = (res.data || [])
           .sort((a, b) => (b.balance || 0) - (a.balance || 0))

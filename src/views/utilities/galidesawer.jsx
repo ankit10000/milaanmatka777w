@@ -24,7 +24,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { red } from '@mui/material/colors';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000/api/galidesawar';
+const API_BASE_URL = 'https://mtka-api.onrender.com/api/galidesawar';
 
 const Galidesawer = () => {
   console.log('Rendering Galidesawer component');

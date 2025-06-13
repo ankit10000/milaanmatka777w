@@ -30,7 +30,7 @@ const Approvepayouts = () => {
   useEffect(() => {
     const fetchPayouts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/wallet/admin/requests');
+        const response = await axios.get('https://mtka-api.onrender.com/api/wallet/admin/requests');
         const formattedData = response.data.map((item, index) => ({
           id: item._id,
           username: item.user?.name || 'N/A',
@@ -53,7 +53,7 @@ const Approvepayouts = () => {
     try {
       const action = newStatus.toLowerCase(); // "approve", "reject", "pending"
   
-      const response = await axios.post('http://localhost:3000/api/wallet/admin/manage', {
+      const response = await axios.post('https://mtka-api.onrender.com/api/wallet/admin/manage', {
         requestId: id,
         action: action,
       });

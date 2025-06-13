@@ -17,7 +17,7 @@ import axios from 'axios';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-const API_URL = 'http://localhost:3000/api/starline/game/create';
+const API_URL = 'https://mtka-api.onrender.com/api/starline/game/create';
 
 const Starlineadd = () => {
   const [formData, setFormData] = useState({
@@ -38,7 +38,7 @@ const Starlineadd = () => {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/starline/game/all');
+        const res = await axios.get('https://mtka-api.onrender.com/api/starline/game/all');
         setGames(res.data.data || []);
       } catch (err) {
         setGames([]);
@@ -109,7 +109,7 @@ const Starlineadd = () => {
   const handleDeleteGame = async (id) => {
     if (!window.confirm('Are you sure you want to delete this game?')) return;
     try {
-      await axios.delete(`http://localhost:3000/api/starline/game/${id}`);
+      await axios.delete(`https://mtka-api.onrender.com/api/starline/game/${id}`);
       setGames((prev) => prev.filter((game) => game._id !== id));
       setSnackbar({
         open: true,

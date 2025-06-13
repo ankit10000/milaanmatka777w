@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { ReactComponent as LogoDark1 } from "../../../../../public/Milan.png";
 import { styled } from "@mui/material";
 
 const LinkStyled = styled(Link)(() => ({
@@ -19,7 +18,7 @@ const Logo = () => {
         alignItems: "center",
       }}
     >
-      <LogoDark1 />
+      <img src="/Milan.png" alt="Logo" style={{ height: "100%", width: "auto" }} />
     </LinkStyled>
   );
 };

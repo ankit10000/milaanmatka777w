@@ -24,7 +24,7 @@ function Gameresult() {
 
   const fetchImages = async () => {
   try {
-    const res = await axios.get('http://localhost:3000/api/homedp/latest-qr');
+    const res = await axios.get('https://mtka-api.onrender.com/api/homedp/latest-qr');
     console.log('Fetched Image Response:', res.data);
     
     if (res.data && res.data.data) {
@@ -55,7 +55,7 @@ function Gameresult() {
     selectedFiles.forEach((file) => formData.append('qrcode', file));
 
     try {
-      const res = await axios.post('http://localhost:3000/api/homedp/upload-qr', formData);
+      const res = await axios.post('https://mtka-api.onrender.com/api/homedp/upload-qr', formData);
       console.log('Upload Response:', res.data);
       toast.success('Image(s) uploaded successfully!');
       setSelectedFiles([]);
@@ -68,7 +68,7 @@ function Gameresult() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/homedp/delete-qr/${id}`);
+      const res = await axios.delete(`https://mtka-api.onrender.com/api/homedp/delete-qr/${id}`);
       console.log('Delete Response:', res.data);
       toast.success('Image deleted successfully!');
       fetchImages();
@@ -79,7 +79,7 @@ function Gameresult() {
   };
 
   const handleView = (imageName) => {
-    const imageUrl = `http://localhost:3000/uploads/QRcode/${imageName}`;
+    const imageUrl = `https://mtka-api.onrender.com/uploads/QRcode/${imageName}`;
     window.open(imageUrl, '_blank');
   };
 
@@ -138,7 +138,7 @@ function Gameresult() {
                 <TableRow key={img._id}>
                   <TableCell>
                     <img
-                      src={`http://localhost:3000/uploads/QRcode/${img.image}`}
+                      src={`https://mtka-api.onrender.com/uploads/QRcode/${img.image}`}
                       alt="preview"
                       style={{
                         width: 80,
@@ -151,7 +151,7 @@ function Gameresult() {
                   </TableCell>
                   <TableCell>
                     <a
-                      href={`http://localhost:3000/uploads/QRcode/${img.image}`}
+                      href={`https://mtka-api.onrender.com/uploads/QRcode/${img.image}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ textDecoration: 'none', color: '#1976d2' }}

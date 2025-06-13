@@ -42,6 +42,6 @@ export default defineConfig({
     //   exportAsDefault: true
     // })],
 
-    plugins: [svgr(), react()],
-    base: '/Modernize-Vite'
+    plugins: [svgr(), react()]
+    // base: '/Modernize-Vite'
 });

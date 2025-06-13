@@ -24,7 +24,7 @@ function Homedp() {
 
   const fetchImages = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/homedp/all-dpimage');
+      const res = await axios.get('https://mtka-api.onrender.com/api/homedp/all-dpimage');
       console.log('Fetched Images Response:', res.data);
       if (res.data && Array.isArray(res.data.data)) {
         setImages(res.data.data);
@@ -53,7 +53,7 @@ function Homedp() {
     selectedFiles.forEach((file) => formData.append('homedp', file));
 
     try {
-      const res = await axios.post('http://localhost:3000/api/homedp/upload', formData);
+      const res = await axios.post('https://mtka-api.onrender.com/api/homedp/upload', formData);
       console.log('Upload Response:', res.data);
       toast.success('Image(s) uploaded successfully!');
       setSelectedFiles([]);
@@ -66,7 +66,7 @@ function Homedp() {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:3000/api/homedp/delete/${id}`);
+      const res = await axios.delete(`https://mtka-api.onrender.com/api/homedp/delete/${id}`);
       console.log('Delete Response:', res.data);
       toast.success('Image deleted successfully!');
       fetchImages();
@@ -77,7 +77,7 @@ function Homedp() {
   };
 
   const handleView = (imageName) => {
-    const imageUrl = `http://localhost:3000/uploads/homedp/${imageName}`;
+    const imageUrl = `https://mtka-api.onrender.com/uploads/homedp/${imageName}`;
     window.open(imageUrl, '_blank');
   };
 
@@ -136,7 +136,7 @@ function Homedp() {
                 <TableRow key={img._id}>
                   <TableCell>
                     <img
-                      src={`http://localhost:3000/uploads/homedp/${img.image}`}
+                      src={`https://mtka-api.onrender.com/uploads/homedp/${img.image}`}
                       alt="preview"
                       style={{
                         width: 80,
@@ -149,7 +149,7 @@ function Homedp() {
                   </TableCell>
                   <TableCell>
                     <a
-                      href={`http://localhost:3000/uploads/homedp/${img.image}`}
+                      href={`https://mtka-api.onrender.com/uploads/homedp/${img.image}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ textDecoration: 'none', color: '#1976d2' }}

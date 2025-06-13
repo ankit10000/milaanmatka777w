@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 // ...existing code...
-const API_URL = 'http://localhost:3000/api/galidesawar/all-bets';
+const API_URL = 'https://mtka-api.onrender.com/api/galidesawar/all-bets';
 
 const Galidesawerwinners = () => {
   const [bets, setBets] = useState([]);

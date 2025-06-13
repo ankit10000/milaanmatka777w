@@ -23,7 +23,7 @@ import {
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/starline/bet/all-bets';
+const API_URL = 'https://mtka-api.onrender.com/api/starline/bet/all-bets';
 
 const statusColors = {
   pending: 'default',

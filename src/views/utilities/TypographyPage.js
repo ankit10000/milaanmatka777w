@@ -33,7 +33,7 @@ const TypographyPage = () => {
   const fetchWithdrawals = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:3000/api/withdrawal/all');
+      const res = await axios.get('https://mtka-api.onrender.com/api/withdrawal/all');
       if (res.data && res.data.success) {
         setWithdrawals(res.data.data);
       } else {
@@ -60,7 +60,7 @@ const TypographyPage = () => {
     }
     setUpdatingId(id);
     try {
-      const res = await axios.put(`http://localhost:3000/api/withdrawal/update/${id}`, {
+      const res = await axios.put(`https://mtka-api.onrender.com/api/withdrawal/update/${id}`, {
         status: statusMap[id],
         transactionId,
         note: noteMap[id] || 'withdraw'

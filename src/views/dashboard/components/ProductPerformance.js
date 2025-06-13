@@ -19,7 +19,7 @@ function Userdetails() {
 
   const fetchUsers = async () => {
     try {
-      const res = await axios.get('http://localhost:3000/api/wallet/admin/all-wallets');
+      const res = await axios.get('https://mtka-api.onrender.com/api/wallet/admin/all-wallets');
       const enrichedData = res.data.map(user => ({
         ...user,
         status: ['Active', 'Inactive', 'Blocked'][Math.floor(Math.random() * 3)],

@@ -14,7 +14,7 @@ const TotalIncome = () => {
   useEffect(() => {
     const fetchTotalIncome = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/wallet/admin/all-wallets');
+        const res = await axios.get('https://mtka-api.onrender.com/api/wallet/admin/all-wallets');
         const total = res.data.reduce((acc, user) => acc + (user.walletBalance || 0), 0);
         setTotalIncome(total);
 
