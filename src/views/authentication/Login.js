@@ -10,7 +10,7 @@ import {
   TextField
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../utils/auth';
+import { login } from '../../utils/auth'; // Adjust the import path as necessary
 
 function Login() {
   const navigate = useNavigate();
