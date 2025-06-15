@@ -1,7 +1,6 @@
 import {
   IconAperture, IconCopy, IconLayoutDashboard, IconLogin, IconMoodHappy, IconTypography, IconUserPlus
 } from '@tabler/icons-react';
-
 import { uniqueId } from 'lodash';
 
 const Menuitems = [
@@ -9,132 +8,104 @@ const Menuitems = [
     navlabel: true,
     subheader: 'Home',
   },
-
   {
     id: uniqueId(),
     title: 'Dashboard',
     icon: IconLayoutDashboard,
-    href: '/dashboard',
+    href: '/admin/dashboard',
   },
   {
     navlabel: true,
-    subheader: 'Utilities',
+    subheader: 'User Management',
   },
- 
-  // {
-  //   id: uniqueId(),
-  //   title: 'Shadow',
-  //   icon: IconCopy,
-  //   href: '/ui/shadow',
-  // },
   {
     id: uniqueId(),
     title: 'Users',
     icon: IconCopy,
-    href: '/Userdetails',
+    href: '/admin/users',
   },
-   {
+  {
     id: uniqueId(),
-    title: 'Home-image',
+    title: 'Withdrawals',
+    icon: IconTypography,
+    href: '/admin/withdrawals',
+  },
+  {
+    navlabel: true,
+    subheader: 'Content',
+  },
+  {
+    id: uniqueId(),
+    title: 'Home Images',
     icon: IconCopy,
-    href: '/Home-image',
+    href: '/admin/home-image',
   },
   {
     id: uniqueId(),
     title: 'QR Code',
     icon: IconCopy,
-    href: '/Game-result',
+    href: '/admin/qr-code',
   },
-
   {
     id: uniqueId(),
-    title: 'Approve-Payouts',
+    title: 'Approve Payouts',
     icon: IconCopy,
-    href: '/Approve-payouts',
+    href: '/admin/approve-payouts',
   },
-   {
-    id: uniqueId(),
-    title: 'Withdrawals',
-    icon: IconTypography,
-    href: '/ui/typography',
-  },
-  // {
-  //   id: uniqueId(),
-  //   title: 'Bet-History',
-  //   icon: IconCopy,
-  //   href: '/Bet-history',
-  // },
   {
     navlabel: true,
     subheader: 'Galidesawer',
   },
-    {
-      id: uniqueId(),
-      title: 'Add-Galidesawer',
-      icon: IconCopy,
-      href: '/galidesawer',
-    },
-    {
-      id: uniqueId(),
-      title: 'Galidesawer-Result',
-      icon: IconCopy,
-      href: '/galidesawerresult',
-    },
-    {
-      id: uniqueId(),
-      title: 'Galidesawer-AllBets',
-      icon: IconCopy,
-      href: '/galidesawerwinners',
-    },
-
-    {
-      navlabel: true,
-      subheader: 'Starline',
-    },
-    {
-      id: uniqueId(),
-      title: 'Add-Starline',
-      icon: IconCopy,
-      href: '/starlineadd',
-    },
-    {
-      id: uniqueId(),
-      title: 'Starline-All-Bet',
-      icon: IconCopy,
-      href: '/starlineallbet',
-    },
-    {
-      id: uniqueId(),
-      title: 'Starline-Result',
-      icon: IconCopy,
-      href: '/starlineresult',
-    },
-
-
-
-
-
-
-
-
-
-  // {
-  //   navlabel: true,
-  //   subheader: 'Auth',
-  // },
-  // {
-  //   id: uniqueId(),
-  //   title: 'Login',
-  //   icon: IconLogin,
-  //   href: '/auth/login',
-  // },
-  // {
-  //   id: uniqueId(),
-  //   title: 'Register',
-  //   icon: IconUserPlus,
-  //   href: '/auth/register',
-  // },
-
+  {
+    id: uniqueId(),
+    title: 'Add Galidesawer',
+    icon: IconCopy,
+    href: '/admin/galidesawer',
+  },
+  {
+    id: uniqueId(),
+    title: 'Galidesawer Result',
+    icon: IconCopy,
+    href: '/admin/galidesawer-result',
+  },
+  {
+    id: uniqueId(),
+    title: 'All Bets',
+    icon: IconCopy,
+    href: '/admin/galidesawer-bets',
+  },
+  {
+    navlabel: true,
+    subheader: 'Starline',
+  },
+  {
+    id: uniqueId(),
+    title: 'Add Starline',
+    icon: IconCopy,
+    href: '/admin/starline-add',
+  },
+  {
+    id: uniqueId(),
+    title: 'All Bets',
+    icon: IconCopy,
+    href: '/admin/starline-bets',
+  },
+  {
+    id: uniqueId(),
+    title: 'Result',
+    icon: IconCopy,
+    href: '/admin/starline-result',
+  },
+  {
+    navlabel: true,
+    subheader: 'Account',
+  },
+  {
+    id: uniqueId(),
+    title: 'Logout',
+    icon: IconLogin,
+    href: '/',
+  },
 ];
 
 export default Menuitems;

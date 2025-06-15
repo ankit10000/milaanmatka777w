@@ -2,7 +2,7 @@ import React, { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
 
-// Import all your components
+// Import all components
 import Userdetails from '../views/utilities/Userdetails';
 import Homedp from '../views/utilities/Homedp';
 import Gameresult from '../views/utilities/Gameresult';
@@ -29,45 +29,52 @@ const Register = Loadable(lazy(() => import('../views/authentication/Register'))
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
 
 const Router = [
+  // ROOT ROUTE - LOGIN ONLY
   {
     path: '/',
-    element: <FullLayout />,
+    element: <BlankLayout />,
     children: [
-      // Root redirect to dashboard instead of login
-      { path: '/', element: <Navigate to="/dashboard" replace /> },
-      { path: '/dashboard', element: <Dashboard /> },
-      
-      // All other protected routes
-      { path: '/ui/typography', element: <TypographyPage /> },
-      { path: '/ui/shadow', element: <Shadow /> },
-      { path: '/Userdetails', element: <Userdetails /> },
-      { path: '/Home-image', element: <Homedp /> },
-      { path: '/Game-result', element: <Gameresult /> },
-      { path: '/Approve-payouts', element: <Approvepayouts /> },
-      { path: '/Bet-history', element: <Bethistory /> },
-      { path: '/galidesawer', element: <Galidesawer /> },
-      { path: '/galidesawerresult', element: <Galidesaweresult /> },
-      { path: '/galidesawerwinners', element: <Galidesawerwinners /> },
-      { path: '/starlineadd', element: <Starlineadd /> },
-      { path: '/starlineallbet', element: <Starlineallbet /> },
-      { path: '/starlineresult', element: <Starlineresult /> },
+      { path: '/', element: <Login /> },
     ],
   },
+  
+  // ADMIN ROUTES - All admin pages with FullLayout
+  {
+    path: '/admin',
+    element: <FullLayout />,
+    children: [
+      { path: '/admin', element: <Navigate to="/admin/dashboard" replace /> },
+      { path: '/admin/dashboard', element: <Dashboard /> },
+      { path: '/admin/users', element: <Userdetails /> },
+      { path: '/admin/home-image', element: <Homedp /> },
+      { path: '/admin/qr-code', element: <Gameresult /> },
+      { path: '/admin/approve-payouts', element: <Approvepayouts /> },
+      { path: '/admin/withdrawals', element: <TypographyPage /> },
+      { path: '/admin/bet-history', element: <Bethistory /> },
+      { path: '/admin/galidesawer', element: <Galidesawer /> },
+      { path: '/admin/galidesawer-result', element: <Galidesaweresult /> },
+      { path: '/admin/galidesawer-bets', element: <Galidesawerwinners /> },
+      { path: '/admin/starline-add', element: <Starlineadd /> },
+      { path: '/admin/starline-bets', element: <Starlineallbet /> },
+      { path: '/admin/starline-result', element: <Starlineresult /> },
+    ],
+  },
+  
+  // AUTH ROUTES
   {
     path: '/auth',
     element: <BlankLayout />,
     children: [
-      { path: '/auth/login', element: <Login /> },
       { path: '/auth/register', element: <Register /> },
       { path: '/auth/404', element: <Error /> },
-      { path: '*', element: <Navigate to="/auth/404" replace /> },
     ],
   },
-  // Catch all other routes
+  
+  // CATCH ALL
   {
     path: '*',
-    element: <Navigate to="/auth/login" replace />
-  }
+    element: <Navigate to="/" replace />,
+  },
 ];
 
 export default Router;

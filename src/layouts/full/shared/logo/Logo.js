@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { styled } from "@mui/material";
+import { styled, Box } from "@mui/material";
 
 const LinkStyled = styled(Link)(() => ({
   height: "70px",
@@ -11,14 +11,25 @@ const LinkStyled = styled(Link)(() => ({
 const Logo = () => {
   return (
     <LinkStyled
-      to="/"
-      height={70}
+      to="/admin/dashboard"
       style={{
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
+        padding: "10px"
       }}
     >
-      <img src="/Milan.png" alt="Logo" style={{ height: "100%", width: "auto" }} />
+      <Box
+        component="img"
+        src="/Milan.png"
+        alt="Logo"
+        sx={{
+          height: "50px",
+          width: "auto",
+          maxWidth: "160px",
+          objectFit: "contain"
+        }}
+      />
     </LinkStyled>
   );
 };

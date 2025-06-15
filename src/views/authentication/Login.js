@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
 import {
   Box,
   Typography,
@@ -7,111 +7,120 @@ import {
   Button,
   Stack,
   Checkbox,
-  TextField
+  TextField,
+  Paper,
+  Container
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../utils/auth'; // Adjust the import path as necessary
 
 function Login() {
   const navigate = useNavigate();
   
- const handleLogin = (e) => {
-  e.preventDefault();
-  const username = e.target.username.value;
-  const password = e.target.password.value;
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const password = e.target.password.value;
 
-  if (username === 'matkaadmin777' && password === 'matkaadmin777') {
-    login(); // Set authentication
-    alert('Login successful');
-    navigate('/dashboard', { replace: true });
-  } else {
-    alert('Invalid credentials');
-  }
-};
+    console.log('Login attempt:', { username, password });
+
+    if (username === 'matkaadmin777' && password === 'matkaadmin777') {
+      alert('Login successful');
+      // Navigate to admin dashboard
+      navigate('/admin/dashboard');
+    } else {
+      alert('Invalid credentials');
+    }
+  };
+
+  React.useEffect(() => {
+    console.log('Login component mounted');
+  }, []);
 
   return (
-    <Box sx={{ 
-      minHeight: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      bgcolor: '#f5f5f5'
-    }}>
-      <Box sx={{ 
-        maxWidth: 400, 
-        width: '100%',
-        mx: 'auto', 
-        p: 3, 
-        boxShadow: 3, 
-        borderRadius: 2,
-        bgcolor: 'white'
-      }}>
-        <Typography variant="h5" fontWeight={600} mb={3} align="center">
-          Admin Login
-        </Typography>
-        <form onSubmit={handleLogin} noValidate>
-          <Stack spacing={3}>
-            <Box>
-              <Typography
-                variant="subtitle1"
-                fontWeight={600}
-                component="label"
-                htmlFor="username"
-                mb="5px"
-                display="block"
-              >
-                Username
-              </Typography>
-              <TextField 
-                id="username" 
-                name="username" 
-                variant="outlined" 
-                fullWidth 
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        padding: 2
+      }}
+    >
+      <Container maxWidth="sm">
+        <Paper
+          elevation={10}
+          sx={{
+            padding: 4,
+            borderRadius: 3,
+            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+          }}
+        >
+          <Box textAlign="center" mb={3}>
+            <Typography 
+              variant="h4" 
+              fontWeight="bold" 
+              color="primary"
+              gutterBottom
+            >
+              Admin Login
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Welcome back! Please sign in to continue.
+            </Typography>
+          </Box>
+
+          <form onSubmit={handleLogin}>
+            <Stack spacing={3}>
+              <TextField
+                fullWidth
+                label="Username"
+                name="username"
+                variant="outlined"
                 required
                 placeholder="Enter username"
+                defaultValue="matkaadmin777"
               />
-            </Box>
-            <Box>
-              <Typography
-                variant="subtitle1"
-                fontWeight={600}
-                component="label"
-                htmlFor="password"
-                mb="5px"
-                display="block"
-              >
-                Password
-              </Typography>
-              <TextField 
-                id="password" 
-                name="password" 
-                type="password" 
-                variant="outlined" 
-                fullWidth 
+              
+              <TextField
+                fullWidth
+                label="Password"
+                name="password"
+                type="password"
+                variant="outlined"
                 required
                 placeholder="Enter password"
+                defaultValue="matkaadmin777"
               />
-            </Box>
-            <Stack justifyContent="space-between" direction="row" alignItems="center">
+
               <FormGroup>
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
                   label="Remember this device"
                 />
               </FormGroup>
+
+              <Button
+                type="submit"
+                variant="contained"
+                size="large"
+                fullWidth
+                sx={{
+                  py: 1.5,
+                  fontSize: '1.1rem',
+                  borderRadius: 2,
+                  background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                  '&:hover': {
+                    background: 'linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%)',
+                  }
+                }}
+              >
+                Sign In
+              </Button>
             </Stack>
-            <Button
-              color="primary"
-              variant="contained"
-              size="large"
-              fullWidth
-              type="submit"
-            >
-              Sign In
-            </Button>
-          </Stack>
-        </form>
-      </Box>
+          </form>
+        </Paper>
+      </Container>
     </Box>
   );
 }
